@@ -5,13 +5,17 @@ dictionary = %w[below down go going horn how howdy it i low own part partner sit
 def substrings(words, dict)
   i = 0
   # https://stackoverflow.com/a/25454566
-  word_array = words.downcase.sub(/[^\w\s]/, '').split
-  # word_array = word_array.join.
+  word_array = words.downcase.split(' ').join
   puts word_array
+  # puts word_array[0]
+  # puts word_array[1]
   result_array = []
   # For every word; iterate through the dictionary to see if there is a match
   while i < word_array.length
-    result_array[i] = word_array[i] if dict.include?(word_array[i])
+    unless dict[i].nil?
+      result_array[i] = dict[i] if word_array.include?(dict[i])
+    end
+    puts 'hey'
     i += 1
   end
   # If there is a match; add one to a counter for that word
