@@ -4,7 +4,10 @@ dictionary = %w[below down go going horn how howdy it i low own part partner sit
 # Get the word(s) and the array of substrings from the user
 def substrings(words, dict)
   i = 0
-  word_array = words.split
+  # https://stackoverflow.com/a/25454566
+  word_array = words.downcase.sub(/[^\w\s]/, '').split
+  # word_array = word_array.join.
+  puts word_array
   result_array = []
   # For every word; iterate through the dictionary to see if there is a match
   while i < word_array.length
