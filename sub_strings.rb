@@ -4,7 +4,6 @@ dictionary = %w[below down go going horn how howdy it i low own part partner sit
 # Get the word(s) and the array of substrings from the user
 def substrings(words, dict)
   i = 0
-  # https://stackoverflow.com/a/25454566
   word_array = words.downcase.split(' ').join
   puts word_array
   # puts word_array[0]
@@ -18,8 +17,10 @@ def substrings(words, dict)
     puts 'hey'
     i += 1
   end
+  result_array.compact!
   # If there is a match; add one to a counter for that word
   # Return a hash containing all the results
+  puts result_array
   puts result_array.each_with_object(Hash.new(0)) { |word, acc| acc[word] += 1; }
 end
 
